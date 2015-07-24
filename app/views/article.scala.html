@@ -1,0 +1,6 @@
+@(articleForm: Form[Article])(implicit messages: Messages)
+
+@helper.form(action = routes.Application.postArticle()) {
+  @helper.inputText(articleForm("title"))
+  @helper.inputText(articleForm("content"))
+}
