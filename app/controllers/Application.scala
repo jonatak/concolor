@@ -4,10 +4,13 @@ import play.api._
 import play.api.mvc._
 import play.api.data._
 import play.api.data.Forms._
+import javax.inject.Inject
+import play.api.i18n.I18nSupport
+import play.api.i18n.MessagesApi
 
 case class Article(title: String, content: String)
 
-class Application extends Controller {
+class Application @Inject()(val messagesApi: MessagesApi) extends Controller with I18nSupport{
 
   val articleForm: Form[Article] = Form(
     mapping(
